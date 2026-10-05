@@ -23,8 +23,8 @@
 |---|---|---|
 | `<APP_DOMAIN>` | `tta.cmm.works` | Any `*.cmm.works` subdomain or own domain works |
 | `<PROJECT>` | `tta` | Folder `/opt/tta`, service `tta-web` |
-| `<ORG>` | `cmm-internship-hub` | **Recommended:** create the repo in this org so the droplet's existing GHCR token can pull. If you use your personal account instead, see Task 8 Step 6 |
-| `<IMAGE>` | `tta-landing-page` | Must be lowercase |
+| `<ORG>` | `litt1estar` | Repo is `Litt1eStar/TTA-LandingPage` (personal account) → the image must be made **public** after the first push (Task 8 Step 6) |
+| `<IMAGE>` | `tta-landingpage` | Must be lowercase |
 | `<PORT>` | `80` | nginx inside the container |
 | `<HEALTH_PATH>` | `/` | Static site; 200 = up |
 
@@ -33,7 +33,7 @@
 - [ ] SSH deploy key `cmm_deploy_key` for `deploy@139.59.100.44` (ask the droplet maintainer).
 - [ ] Permission to open a PR (or get one merged) in the **CMM-Internship-Hub-Server** repo (for the Caddyfile).
 - [ ] Access to GoDaddy DNS for `cmm.works` (or someone who has it).
-- [ ] Ability to create a repo in the `cmm-internship-hub` GitHub org.
+- [x] GitHub repo exists: `Litt1eStar/TTA-LandingPage`.
 
 ## File structure
 
@@ -150,7 +150,6 @@ server {
 
     # Hashed Vite bundles: safe to cache forever.
     location /static/ {
-        expires 1y;
         add_header Cache-Control "public, max-age=31536000, immutable";
         try_files $uri =404;
     }
@@ -221,7 +220,7 @@ name: tta
 
 services:
   tta-web:
-    image: ghcr.io/cmm-internship-hub/tta-landing-page:latest
+    image: ghcr.io/litt1estar/tta-landingpage:latest
     restart: unless-stopped
     expose:
       - "80"
@@ -305,8 +304,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/cmm-internship-hub/tta-landing-page:latest
-            ghcr.io/cmm-internship-hub/tta-landing-page:${{ github.sha }}
+            ghcr.io/litt1estar/tta-landingpage:latest
+            ghcr.io/litt1estar/tta-landingpage:${{ github.sha }}
 
       - name: Copy compose file to droplet
         uses: appleboy/scp-action@v0.1.7
@@ -425,7 +424,7 @@ Expected: `HTTP/2 502` — correct at this stage (valid HTTPS, but `tta-web` doe
 
 ### Task 8: GitHub repo, secrets, first deploy
 
-- [ ] **Step 1: Create the repo** `cmm-internship-hub/tta-landing-page` on GitHub (empty — no README/licence, so the first push is clean).
+- [ ] **Step 1: Create the repo** `litt1estar/tta-landingpage` on GitHub (empty — no README/licence, so the first push is clean).
 
 - [ ] **Step 2: Add repository secrets** (Settings → Secrets and variables → Actions):
 
@@ -438,7 +437,7 @@ Expected: `HTTP/2 502` — correct at this stage (valid HTTPS, but `tta-web` doe
 - [ ] **Step 3: Push**
 
 ```bash
-git remote add origin https://github.com/cmm-internship-hub/tta-landing-page.git
+git remote add origin https://github.com/litt1estar/tta-landingpage.git
 git push -u origin main
 ```
 
@@ -506,8 +505,8 @@ to
 ```bash
 ssh -i ./cmm_deploy_key deploy@139.59.100.44
 cd /opt/tta
-docker pull ghcr.io/cmm-internship-hub/tta-landing-page:<good-sha>
-docker tag ghcr.io/cmm-internship-hub/tta-landing-page:<good-sha> ghcr.io/cmm-internship-hub/tta-landing-page:latest
+docker pull ghcr.io/litt1estar/tta-landingpage:<good-sha>
+docker tag ghcr.io/litt1estar/tta-landingpage:<good-sha> ghcr.io/litt1estar/tta-landingpage:latest
 docker compose up -d
 ```
 Better long-term: `git revert` the bad commit and push, so `main` matches what's live.
