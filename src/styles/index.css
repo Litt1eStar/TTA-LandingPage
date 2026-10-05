@@ -1,0 +1,160 @@
+@import './animations.css';
+
+:root {
+  /* Brand Primary - Energy Orange */
+  --color-primary-start: #FFB21E;
+  --color-primary: #FF6A1A;
+  --color-primary-dark: #FF4D1A;
+  --gradient-primary: linear-gradient(135deg, #FFB21E, #FF6A1A 55%, #FF4D1A);
+  --shadow-primary: 0 14px 28px -12px rgba(255, 90, 26, 0.85);
+  --shadow-primary-hover: 0 20px 34px -12px rgba(255, 90, 26, 0.95);
+
+  /* Brand Secondary - Electric Blue */
+  --color-blue-start: #2FA6FF;
+  --color-blue: #1F7BFF;
+  --color-blue-dark: #1747D6;
+  --gradient-blue: linear-gradient(135deg, #2FA6FF, #1F7BFF 55%, #2A5BFF);
+  --shadow-blue: 0 14px 28px -12px rgba(31, 123, 255, 0.8);
+  --shadow-blue-hover: 0 20px 34px -12px rgba(31, 123, 255, 0.9);
+
+  /* Neutrals & Surfaces */
+  --color-ink-900: #0E1A33;
+  --color-ink-700: #1D2F66;
+  --color-ink-500: #3A4560;
+  --color-ink-400: #5B6478;
+  --color-ink-200: #8FA7D6;
+  --color-bg-light: #F8FAFC;
+  --color-surface-gray: #F6F8FC;
+  --color-border: #E1E6EF;
+  --color-border-subtle: #EDEFF4;
+
+  /* Typography */
+  --font-family-base: 'Anuphan', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-base);
+  color: var(--color-ink-900);
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+button {
+  font-family: var(--font-family-base);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: var(--font-family-base);
+}
+
+/* Material Symbols icon style */
+.icon {
+  font-family: 'Material Symbols Rounded';
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f3f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd3e2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9aa7c0;
+}
+
+/* Section Container */
+.tta-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .tta-container {
+    padding: 0 40px;
+  }
+}
+
+/* Section Heading Standard */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 2.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-ink-900);
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.75rem;
+  }
+}
+
+.section-bar {
+  width: 64px;
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #FFB21E, #FF6A1A, #1F7BFF);
+}
+
+.section-subtitle {
+  margin: 6px 0 0;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--color-ink-400);
+}
