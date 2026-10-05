@@ -455,7 +455,7 @@ ssh -i ./cmm_deploy_key deploy@139.59.100.44 "cd /opt/tta && docker compose ps"
 ```
 Expected: `tta-web` with status `Up`.
 
-- [ ] **Step 6: Only if the repo is NOT under `cmm-internship-hub`** — the "Deploy over SSH" step will fail with `unauthorized` on `docker compose pull`, because the droplet's GHCR token can't read your package. Since this site has no secrets, the simplest fix is: GitHub → your profile → Packages → `tta-landing-page` → Package settings → Change visibility → **Public**. Then re-run: `gh run rerun --failed`. (Also replace `cmm-internship-hub` in `infra/docker-compose.yml` and `deploy.yml` with your lowercase username before pushing.)
+- [ ] **Step 6: Make the image public (required — repo is on a personal account)** — the droplet's GHCR token can't read private packages outside the CMM org, so the first run's "Deploy over SSH" step fails with `unauthorized` on `docker compose pull`. The site has no secrets, so: GitHub → your profile → Packages → `tta-landingpage` → Package settings → Change visibility → **Public**. Then re-run: `gh run rerun --failed`.
 
 ---
 
