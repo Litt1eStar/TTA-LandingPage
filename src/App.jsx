@@ -7,14 +7,14 @@ import Topics from './components/Topics';
 import TopicModal from './components/TopicModal';
 import Schedule from './components/Schedule';
 import NewsDownloads from './components/NewsDownloads';
-import LoginModal from './components/LoginModal';
 import Toast from './components/Toast';
 import Footer from './components/Footer';
+
+const PORTAL_URL = 'https://tta.portal.cmm.works/';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [selectedTopic, setSelectedTopic] = useState(null);
-  const [loginOpen, setLoginOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [toastTimer, setToastTimer] = useState(null);
 
@@ -28,11 +28,7 @@ export default function App() {
   };
 
   const handleOpenLogin = () => {
-    setLoginOpen(true);
-  };
-
-  const handleCloseLogin = () => {
-    setLoginOpen(false);
+    window.location.href = PORTAL_URL;
   };
 
   const handleSelectTopic = (topic) => {
@@ -43,10 +39,8 @@ export default function App() {
     setSelectedTopic(null);
   };
 
-  const handleApplyTopic = (topic) => {
-    setSelectedTopic(null);
-    setLoginOpen(true);
-    showToast(`กรุณาเข้าสู่ระบบเพื่อดำเนินการสมัคร "${topic.name}"`);
+  const handleApplyTopic = () => {
+    handleOpenLogin();
   };
 
   const handleShowResults = () => {
@@ -91,13 +85,6 @@ export default function App() {
           onToast={showToast}
         />
       )}
-
-      {/* Login & Authentication Modal */}
-      <LoginModal
-        isOpen={loginOpen}
-        onClose={handleCloseLogin}
-        onToast={showToast}
-      />
 
       {/* Toast Feedback Notification */}
       <Toast message={toastMessage} onClose={() => setToastMessage('')} />
