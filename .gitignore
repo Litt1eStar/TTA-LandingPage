@@ -1,5 +1,11 @@
 /node_modules
 dist
+.env
+.env.*
+*.local
+.DS_Store
+cmm_deploy_key*
+.playwright-mcp/
 
 # graft's local graph cache — regenerable, not committed (run `graft build`).
 /graft/
