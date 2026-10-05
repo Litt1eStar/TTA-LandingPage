@@ -28,7 +28,7 @@ export default function App() {
   };
 
   const handleOpenLogin = () => {
-    window.location.href = PORTAL_URL;
+    window.open(PORTAL_URL, '_blank', 'noopener');
   };
 
   const handleSelectTopic = (topic) => {
