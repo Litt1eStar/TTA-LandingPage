@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { categoryProfiles } from '../data/topicsData';
 import ImagePlaceholder from './ImagePlaceholder';
 
-export default function TopicModal({ topic, onClose, onApply, onToast }) {
+export default function TopicModal({ topic, onClose, onToast }) {
   const [activeTab, setActiveTab] = useState(0);
 
   // Close modal when pressing Escape key
@@ -565,26 +565,6 @@ export default function TopicModal({ topic, onClose, onApply, onToast }) {
           >
             <span className="icon" style={{ fontSize: '20px' }}>download</span>
             <span>ดาวน์โหลดเอกสาร</span>
-          </button>
-
-          <button
-            onClick={() => {
-              onClose();
-              onApply?.(topic);
-            }}
-            style={{
-              height: '50px',
-              padding: '0 28px',
-              borderRadius: '14px',
-              border: 'none',
-              background: 'var(--gradient-primary)',
-              color: '#ffffff',
-              font: '600 15px var(--font-family-base)',
-              cursor: 'pointer',
-              boxShadow: '0 10px 22px -10px rgba(255, 90, 26, 0.8)'
-            }}
-          >
-            สมัครเข้าแข่งขัน
           </button>
         </div>
       </div>

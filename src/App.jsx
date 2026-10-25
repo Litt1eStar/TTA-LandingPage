@@ -39,10 +39,6 @@ export default function App() {
     setSelectedTopic(null);
   };
 
-  const handleApplyTopic = () => {
-    handleOpenLogin();
-  };
-
   const handleShowResults = () => {
     showToast('การแข่งขันเสร็จสิ้นจะประกาศผลและมอบรางวัลอย่างเป็นทางการในวันที่ 7 กุมภาพันธ์ 2027');
   };
@@ -81,7 +77,6 @@ export default function App() {
         <TopicModal
           topic={selectedTopic}
           onClose={handleCloseTopic}
-          onApply={handleApplyTopic}
           onToast={showToast}
         />
       )}
