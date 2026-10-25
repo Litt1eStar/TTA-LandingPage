@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64" width="200" height="64">
+  <path d="M10 40 Q28 4 46 40" fill="none" stroke="#FF4D1A" stroke-width="8" stroke-linecap="round"/><circle cx="28" cy="46" r="6" fill="#1F7BFF"/>
+  <text x="58" y="32" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="800" fill="#FF4D1A" letter-spacing="0.5">SPONSOR 08</text>
+  <text x="59" y="47" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="10" font-weight="600" fill="#8A93A6" letter-spacing="1.6">COMPANY LOGO</text>
+</svg>

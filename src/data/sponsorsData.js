@@ -1,20 +1,7 @@
-// Official sponsors, in the order of the reference strip. Add `logo: '/sponsors/<file>.png'`
-// to each entry once the logo files arrive; entries without a logo show their name instead.
-export const sponsorsData = [
-  { name: 'Southern Solarcell Co., Ltd.' },
-  { name: 'Revolution Didactic' },
-  { name: 'TOA' },
-  { name: 'Powell' },
-  { name: 'Vertex' },
-  { name: 'Auto Didactic Co., Ltd.' },
-  { name: 'AppliCAD' },
-  { name: 'Digital Instrument' },
-  { name: 'Trinergy Comm' },
-  { name: 'Worathan Technology' },
-  { name: 'Digital Instrument Co., Ltd.' },
-  { name: 'E-Power' },
-  { name: 'FES' },
-  { name: 'PD Success' },
-  { name: 'Lock Solar' },
-  { name: 'SIIK Technology' }
-];
+// Official sponsors shown in the sticky bar at the bottom of the screen.
+// These are mockup logos (public/sponsors/sponsor-NN.svg) until the real files arrive from
+// พี่เอ็ม's Drive: replace each entry's name and logo, keeping the logo about 200×64.
+export const sponsorsData = Array.from({ length: 10 }, (_, i) => {
+  const n = String(i + 1).padStart(2, '0');
+  return { name: `Sponsor ${n}`, logo: `/sponsors/sponsor-${n}.svg` };
+});

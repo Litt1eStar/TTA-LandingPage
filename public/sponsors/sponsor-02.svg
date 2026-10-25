@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64" width="200" height="64">
+  <rect x="10" y="14" width="36" height="36" rx="9" fill="#1F7BFF"/><path d="M19 39 L28 22 L37 39 Z" fill="#fff"/>
+  <text x="58" y="32" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="800" fill="#1F7BFF" letter-spacing="0.5">SPONSOR 02</text>
+  <text x="59" y="47" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="10" font-weight="600" fill="#8A93A6" letter-spacing="1.6">COMPANY LOGO</text>
+</svg>
