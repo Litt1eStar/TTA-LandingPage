@@ -3,11 +3,14 @@ import Navbar from './components/Navbar';
 import IntroSplash from './components/IntroSplash';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
+import StatsTable from './components/StatsTable';
 import Topics from './components/Topics';
 import TopicModal from './components/TopicModal';
 import Schedule from './components/Schedule';
+import Venues from './components/Venues';
 import NewsDownloads from './components/NewsDownloads';
 import Toast from './components/Toast';
+import Sponsors from './components/Sponsors';
 import Footer from './components/Footer';
 
 const PORTAL_URL = 'https://tta.portal.cmm.works/';
@@ -64,10 +67,14 @@ export default function App() {
       <main>
         <Hero onOpenLogin={handleOpenLogin} onShowResults={handleShowResults} />
         <Stats />
+        <StatsTable />
         <Topics onSelectTopic={handleSelectTopic} />
         <Schedule />
+        <Venues />
         <NewsDownloads onOpenNews={handleOpenNews} />
       </main>
+
+      <Sponsors />
 
       {/* Footer */}
       <Footer />
