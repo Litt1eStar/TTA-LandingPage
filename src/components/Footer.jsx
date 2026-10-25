@@ -64,6 +64,9 @@ export default function Footer() {
             <a href="#schedule" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>
               กำหนดการ
             </a>
+            <a href="#venues" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>
+              สถานที่แข่งขัน
+            </a>
             <a href="#news" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>
               ข่าวสาร
             </a>

@@ -134,63 +134,6 @@ export default function Venues() {
             })}
           </div>
         </div>
-
-        {/* Overview table of every venue */}
-        <div style={{ marginTop: '40px', overflowX: 'auto' }}>
-          <table
-            style={{
-              width: '100%',
-              minWidth: '560px',
-              borderCollapse: 'separate',
-              borderSpacing: 0,
-              backgroundColor: '#ffffff',
-              borderRadius: '18px',
-              overflow: 'hidden',
-              boxShadow: '0 16px 36px -28px rgba(14, 26, 51, 0.4)'
-            }}
-          >
-            <thead>
-              <tr style={{ background: 'var(--gradient-blue)', color: '#ffffff' }}>
-                {['อาคาร', 'การแข่งขัน', 'ห้อง / พื้นที่', 'วันที่'].map((h) => (
-                  <th key={h} style={{ padding: '14px 18px', textAlign: 'left', font: '600 15px var(--font-family-base)' }}>
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {buildings.flatMap((b) =>
-                b.topics.map((t, i) => (
-                  <tr key={t.id}>
-                    {i === 0 && (
-                      <td
-                        rowSpan={b.topics.length}
-                        style={{
-                          padding: '14px 18px',
-                          font: '700 16px var(--font-family-base)',
-                          color: 'var(--color-primary)',
-                          borderTop: '1px solid var(--color-border-subtle)',
-                          verticalAlign: 'top'
-                        }}
-                      >
-                        {b.code}
-                      </td>
-                    )}
-                    <td style={{ padding: '14px 18px', font: '600 15px var(--font-family-base)', borderTop: '1px solid var(--color-border-subtle)' }}>
-                      {t.name}
-                    </td>
-                    <td style={{ padding: '14px 18px', font: '400 15px var(--font-family-base)', color: 'var(--color-ink-500)', borderTop: '1px solid var(--color-border-subtle)' }}>
-                      {t.building}
-                    </td>
-                    <td style={{ padding: '14px 18px', font: '400 15px var(--font-family-base)', color: 'var(--color-ink-500)', borderTop: '1px solid var(--color-border-subtle)', whiteSpace: 'nowrap' }}>
-                      {t.date}
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
       </div>
     </section>
   );
