@@ -9,6 +9,7 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
     { id: 'home', label: 'หน้าหลัก' },
     { id: 'topics', label: 'หัวข้อการแข่งขัน' },
     { id: 'schedule', label: 'กำหนดการ' },
+    { id: 'venues', label: 'สถานที่แข่งขัน' },
     { id: 'news', label: 'ข่าวสาร' }
   ];
 
@@ -17,7 +18,8 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
       setScrolled(scrollY > 60);
 
-      const sections = ['news', 'schedule', 'topics', 'home'];
+      // Bottom-most section first, so the first one scrolled past is the current one
+      const sections = navLinks.map((link) => link.id).reverse();
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
