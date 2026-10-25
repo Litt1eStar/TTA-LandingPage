@@ -1,7 +1,7 @@
-name: tta
+name: tta-landing
 
 services:
-  tta-web:
+  tta-landing:
     image: ghcr.io/litt1estar/tta-landingpage:latest
     restart: unless-stopped
     expose:

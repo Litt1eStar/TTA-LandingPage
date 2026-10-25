@@ -501,18 +501,20 @@ to
 
 ## Operations cheat-sheet
 
+> **2026-10-26:** moved from `/opt/tta` + service `tta-web` to `/opt/tta-landing` + service `tta-landing`. TTA-Leaderboard-Simulation copied the original names and its deploys overwrote this site. Every project on the droplet needs its own compose project name, service name and folder.
+
 **Rollback to a previous build** (each deploy is also tagged with its commit SHA):
 ```bash
 ssh -i ./cmm_deploy_key deploy@139.59.100.44
-cd /opt/tta
+cd /opt/tta-landing
 docker pull ghcr.io/litt1estar/tta-landingpage:<good-sha>
 docker tag ghcr.io/litt1estar/tta-landingpage:<good-sha> ghcr.io/litt1estar/tta-landingpage:latest
 docker compose up -d
 ```
 Better long-term: `git revert` the bad commit and push, so `main` matches what's live.
 
-**Logs:** `cd /opt/tta && docker compose logs --tail 100 tta-web`
+**Logs:** `cd /opt/tta-landing && docker compose logs --tail 100 tta-landing`
 
 **Never** run `docker compose down -v` in `/opt/cmm` (wipes every site's certificates).
 
-**Removing the site:** remove the Caddy block (PR in CMM server repo) → `cd /opt/tta && docker compose down && rm -rf /opt/tta` → delete DNS record and repo secrets.
+**Removing the site:** remove the Caddy block (PR in CMM server repo) → `cd /opt/tta-landing && docker compose down && rm -rf /opt/tta-landing` → delete DNS record and repo secrets.

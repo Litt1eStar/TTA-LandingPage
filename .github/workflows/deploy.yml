@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.DROPLET_USER }}
           key: ${{ secrets.DROPLET_SSH_KEY }}
           source: "infra/docker-compose.yml"
-          target: "/opt/tta/"
+          target: "/opt/tta-landing/"
           strip_components: 1
 
       - name: Deploy over SSH
@@ -52,7 +52,7 @@ jobs:
           username: ${{ secrets.DROPLET_USER }}
           key: ${{ secrets.DROPLET_SSH_KEY }}
           script: |
-            cd /opt/tta
+            cd /opt/tta-landing
             docker compose pull
             docker compose up -d --remove-orphans
             docker image prune -f
@@ -60,4 +60,4 @@ jobs:
       - name: Smoke check
         run: |
           # Retries cover a first boot, while Caddy is still getting the certificate.
-          curl -fsS --retry 10 --retry-delay 5 --retry-all-errors https://tta.cmm.works/ | grep -q 'id="root"'
+          curl -fsS --retry 10 --retry-delay 5 --retry-all-errors https://tta.cmm.works/ | grep -q 'Thailand Teaching Academy Award'
