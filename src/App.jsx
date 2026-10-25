@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import IntroSplash from './components/IntroSplash';
 import Hero from './components/Hero';
+import BannerSlider from './components/BannerSlider';
 import Stats from './components/Stats';
 import StatsTable from './components/StatsTable';
 import Topics from './components/Topics';
@@ -66,6 +67,7 @@ export default function App() {
       {/* Main Content Sections */}
       <main>
         <Hero onOpenLogin={handleOpenLogin} onShowResults={handleShowResults} />
+        <BannerSlider />
         <Stats />
         <StatsTable />
         <Topics onSelectTopic={handleSelectTopic} />

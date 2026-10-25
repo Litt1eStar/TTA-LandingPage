@@ -277,3 +277,11 @@ body {
     overflow-x: auto;
   }
 }
+
+/* Banner slider: phones swipe and use the dots, so the arrows and size tag would only crowd it */
+@media (max-width: 767px) {
+  .banner-arrow,
+  .banner-size-tag {
+    display: none !important;
+  }
+}
