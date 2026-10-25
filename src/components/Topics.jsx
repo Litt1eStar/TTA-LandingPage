@@ -28,7 +28,7 @@ export default function Topics({ onSelectTopic }) {
             aspectRatio: '1100 / 680'
           }}
         >
-          {/* SVG Circuit Line */}
+          {/* SVG Circuit Line: passes through each card's pin (top-centre, mapX + 98, mapY) */}
           <svg
             viewBox="0 0 1100 680"
             preserveAspectRatio="none"
@@ -42,7 +42,7 @@ export default function Topics({ onSelectTopic }) {
             aria-hidden="true"
           >
             <path
-              d="M98 30 C 180 40, 240 105, 324 105 C 420 105, 480 40, 550 35 C 620 40, 690 100, 776 100 C 870 100, 930 30, 1002 20 C 1080 20, 1170 100, 1160 200 C 1150 300, 1060 330, 1002 360 C 930 360, 850 455, 776 455 C 700 455, 620 360, 550 360 C 470 360, 400 455, 324 455 C 250 455, 170 360, 98 360 C 20 360, -70 300, -60 200 C -50 100, 20 20, 98 30"
+              d="M98 30 C 210 30, 290 105, 399 105 C 510 105, 590 30, 700 30 C 810 30, 890 105, 1002 105 C 1160 105, 1160 455, 1002 455 C 890 455, 810 360, 700 360 C 590 360, 510 455, 399 455 C 290 455, 210 360, 98 360 C -60 360, -60 30, 98 30"
               fill="none"
               stroke="#FF8A1F"
               strokeWidth="2.5"

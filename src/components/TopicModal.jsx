@@ -212,6 +212,37 @@ export default function TopicModal({ topic, onClose, onToast }) {
             {topic.desc}
           </p>
 
+          {/* Competitions inside this category */}
+          {topic.groups && (
+            <ul
+              aria-label="รายการแข่งขันในประเภทนี้"
+              style={{
+                position: 'relative',
+                listStyle: 'none',
+                margin: '-6px 0 22px',
+                padding: 0,
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '8px'
+              }}
+            >
+              {topic.groups.map((g) => (
+                <li
+                  key={g.name}
+                  style={{
+                    padding: '6px 14px',
+                    borderRadius: '999px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    color: '#0E1A33',
+                    font: '600 13px var(--font-family-base)'
+                  }}
+                >
+                  {g.name}
+                </li>
+              ))}
+            </ul>
+          )}
+
           {/* Navigation Tabs */}
           <div
             role="tablist"

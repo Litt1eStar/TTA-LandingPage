@@ -3,9 +3,24 @@ import { topicsData } from '../data/topicsData';
 import { venueBuildings, venuesIsSample } from '../data/venuesData';
 import SampleBadge from './SampleBadge';
 
+// One entry per competition. A card's groups are listed separately only when they have their
+// own venue (e.g. the arts competitions); otherwise the card appears once, at its building.
+const competitions = topicsData.flatMap((t) =>
+  t.groups?.some((g) => g.buildingCode)
+    ? t.groups.map((g) => ({
+        id: `${t.id}-${g.name}`,
+        name: g.name,
+        icon: t.icon,
+        buildingCode: g.buildingCode || t.buildingCode,
+        building: g.building || t.building,
+        date: g.date || t.date
+      }))
+    : [t]
+);
+
 const buildings = venueBuildings.map((b) => ({
   ...b,
-  topics: topicsData.filter((t) => t.buildingCode === b.code)
+  topics: competitions.filter((c) => c.buildingCode === b.code)
 }));
 
 export default function Venues() {
