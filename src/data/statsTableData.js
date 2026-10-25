@@ -5,6 +5,7 @@ export const statsTableIsSample = true;
 export const statsTableGroups = [
   {
     label: 'การแข่งขันสอนทฤษฎี',
+    tone: 'orange',
     columns: [
       { label: 'กล', count: 9 },
       { label: 'โย', count: 7 },
@@ -15,6 +16,7 @@ export const statsTableGroups = [
   },
   {
     label: 'การแข่งขันสอนปฏิบัติ',
+    tone: 'blue',
     columns: [
       { label: 'กล', count: 8 },
       { label: 'โย', count: 6 },
@@ -24,12 +26,13 @@ export const statsTableGroups = [
   },
   {
     label: 'ศิลป',
+    tone: 'gold',
     columns: [
       { label: 'ร้อง', count: 10 },
       { label: 'แสดง', count: 9 }
     ]
   },
-  // Single-column categories: the header spans both rows.
+  // Single-column categories: the header spans both rows. They share the navy tone.
   { label: 'HW', count: 10 },
   { label: 'SW', count: 10 },
   { label: 'VDO', count: 8 },

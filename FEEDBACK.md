@@ -13,7 +13,7 @@
 | 2 | เอาปุ่ม **"สมัครเข้าแข่งขัน"** ใน popup หัวข้อการแข่งขันออก | ✅ |
 | 3 | เพิ่มเมนู **"สถานที่แข่งขัน"** บน Navbar กดแล้ว scroll ไปที่ส่วนสถานที่แข่งขัน | ✅ |
 | 4 | ชื่อตึกใช้รูปแบบรหัสตึก มจธ. เช่น `N16`, `S13` (ไม่ใช้ CB5, CB3, CB2 แบบเดิม) | 🟡 เปลี่ยนแล้ว แต่ตึกของแต่ละการแข่งขันยังเป็นข้อมูลตัวอย่าง |
-| 5 | เพิ่มส่วน **Sponsor** ตามรูปแบบตัวอย่าง: หัวข้อ "OFFICIAL SPONSORS" และโลโก้เรียงแถวเดียว ดูรูป [sponsor-reference.png](docs/feedback/sponsor-reference.png) | 🟡 โครงเสร็จแล้ว ใช้ชื่อแทนโลโก้ไปก่อน รอไฟล์โลโก้จาก Drive พี่เอ็ม |
+| 5 | เพิ่มส่วน **Sponsor** ตามรูปแบบตัวอย่าง: หัวข้อ "OFFICIAL SPONSORS" และโลโก้เรียงแถวเดียว ดูรูป [sponsor-reference.png](docs/feedback/sponsor-reference.png) | 🟡 เป็นแถบติดด้านล่างจอและเลื่อนอัตโนมัติ ตอนนี้ใช้โลโก้ mockup 10 รายการ รอไฟล์โลโก้จริงจาก Drive พี่เอ็ม |
 | 6 | เพิ่ม **ตารางสถิติ** ต่อจากการ์ดสถิติการสมัคร ตามรูป [stats-table-reference.png](docs/feedback/stats-table-reference.png) | 🟡 โครงเสร็จแล้ว ตัวเลขเป็นข้อมูลตัวอย่าง (มีป้ายกำกับ) |
 | 7 | ส่วน **สถานที่แข่งขัน**: ใช้แผนที่ [kmutt-location-3d.svg](public/assets/kmutt-location-3d.svg) และวางปุ่มไว้ใกล้เลขตึก เอาเมาส์ชี้ (บนมือถือคือแตะ) แล้วแสดงว่าตึกนั้นมีการแข่งขันอะไรบ้าง | 🟡 โครงเสร็จแล้ว ข้อมูลอาคารเป็นข้อมูลตัวอย่าง (มีป้ายกำกับ) |
 
@@ -48,7 +48,7 @@
 | ตึกและห้องของแต่ละการแข่งขัน | `src/data/topicsData.js` (`buildingCode`, `venue`, `building`) |
 | ตำแหน่งปุ่มบนแผนที่ | `src/data/venuesData.js` (`venuesIsSample`) |
 | จำนวนสถาบันในตารางสถิติ | `src/data/statsTableData.js` (`statsTableIsSample`) |
-| โลโก้ Sponsor | `src/data/sponsorsData.js` (เพิ่ม `logo` ให้แต่ละรายการ และวางไฟล์ใน `public/sponsors/`) |
+| โลโก้ Sponsor | วางไฟล์ใน `public/sponsors/` (ขนาดประมาณ 200×64) แล้วแก้ชื่อและ path ใน `src/data/sponsorsData.js` |
 
 ## หมายเหตุ
 
