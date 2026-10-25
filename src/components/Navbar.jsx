@@ -80,11 +80,11 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
             href="#home"
             onClick={(e) => handleNavClick(e, 'home')}
             style={{ display: 'flex', alignItems: 'center' }}
-            aria-label="TTA 2026 Home"
+            aria-label="TTA 2027 Home"
           >
             <img
               src="/assets/logo.png"
-              alt="Thailand Teaching Academy Award 2026"
+              alt="Thailand Teaching Academy Award 2027"
               style={{ height: '54px', width: 'auto', display: 'block' }}
             />
           </a>
@@ -210,11 +210,11 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
             href="#home"
             onClick={(e) => handleNavClick(e, 'home')}
             style={{ display: 'flex', alignItems: 'center' }}
-            aria-label="TTA 2026 Home"
+            aria-label="TTA 2027 Home"
           >
             <img
               src="/assets/logo.png"
-              alt="TTA 2026"
+              alt="TTA 2027"
               style={{ height: '36px', width: 'auto', display: 'block' }}
             />
           </a>
@@ -330,7 +330,7 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
             onClick={(e) => e.stopPropagation()}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <img src="/assets/logo.png" alt="TTA 2026" style={{ height: '44px', width: 'auto' }} />
+              <img src="/assets/logo.png" alt="TTA 2027" style={{ height: '44px', width: 'auto' }} />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 style={{

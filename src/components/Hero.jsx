@@ -139,7 +139,7 @@ export default function Hero({ onOpenLogin, onShowResults }) {
                   display: 'inline-block'
                 }}
               >
-                2026
+                2027
               </span>
             </h1>
 
@@ -242,7 +242,7 @@ export default function Hero({ onOpenLogin, onShowResults }) {
 
             <img
               src="/assets/logo.png"
-              alt="Thailand Teaching Academy Award 2026"
+              alt="Thailand Teaching Academy Award 2027"
               style={{
                 position: 'relative',
                 zIndex: 2,

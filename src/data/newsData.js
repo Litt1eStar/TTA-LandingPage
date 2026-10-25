@@ -1,8 +1,8 @@
 export const newsData = [
   {
     id: 1,
-    title: 'Template Teaching Academy 2026',
-    desc: 'ไฟล์ Template แบบฟอร์มแผนการสอนและรายงานผลงาน Teaching Academy 2026',
+    title: 'Template Teaching Academy 2027',
+    desc: 'ไฟล์ Template แบบฟอร์มแผนการสอนและรายงานผลงาน Teaching Academy 2027',
     tag: 'เอกสาร',
     color: '#FF6A1A',
     image: '/uploads/pasted-1790538905311-0.png',
@@ -47,7 +47,7 @@ export const newsData = [
   {
     id: 6,
     title: 'กำหนดการพิธีเปิดและปิด',
-    desc: 'กำหนดการและลำดับพิธีการมอบเหรียญรางวัลเกียรติยศ TTA Award ประจำปี 2026',
+    desc: 'กำหนดการและลำดับพิธีการมอบเหรียญรางวัลเกียรติยศ TTA Award ประจำปี 2027',
     tag: 'สูจิบัตร',
     color: '#1F7BFF',
     image: '/uploads/pasted-1790539617207-0.png',

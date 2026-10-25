@@ -86,7 +86,7 @@ export default function Footer() {
               color: 'rgba(255, 255, 255, 0.95)'
             }}
           >
-            © | THAILAND TEACHING ACADEMY AWARD 2026 (TTA ครั้งที่ 13)
+            © | THAILAND TEACHING ACADEMY AWARD 2027 (TTA ครั้งที่ 13)
           </div>
           <div
             style={{
