@@ -207,7 +207,7 @@ export default function Hero({ onOpenLogin, onShowResults }) {
             />
 
             <img
-              src="/assets/logo.png"
+              src="/assets/logo.webp"
               alt="Thailand Teaching Academy Award 2027"
               style={{
                 position: 'relative',

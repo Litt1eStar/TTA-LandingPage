@@ -1,7 +1,6 @@
-// Buildings shown on the campus map (public/assets/kmutt-location-3d.svg).
-// x and y are the position of the building's label on the map, as a percentage of the rendered
-// map's width and height. Measure on a screenshot of the map, not on the raw embedded image: the
-// SVG crops it. Which competitions each building hosts comes from buildingCode in topicsData.
+// Buildings shown on the campus map (public/assets/kmutt-campus-map.webp, rendered from the
+// original SVG kept in design/originals/). x and y are the position of the building's label on the
+// map, as a percentage of the map image's width and height. Which competitions each building hosts comes from buildingCode in topicsData.
 export const venuesIsSample = true;
 
 // `cb` is the classroom building (อาคารเรียนรวม) at that spot: a sample pairing until the team

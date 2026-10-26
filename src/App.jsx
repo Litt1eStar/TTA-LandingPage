@@ -16,9 +16,29 @@ import Sponsors from './components/Sponsors';
 import Footer from './components/Footer';
 
 const PORTAL_URL = 'https://tta.portal.cmm.works/';
+const SPLASH_SEEN_KEY = 'tta-splash-seen';
+
+// The intro splash plays once per browser session, and never for viewers who prefer less motion.
+// Storage can throw (private mode, blocked site data); then the splash simply plays.
+function shouldShowSplash() {
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false;
+  try {
+    return sessionStorage.getItem(SPLASH_SEEN_KEY) !== '1';
+  } catch {
+    return true;
+  }
+}
+
+function markSplashSeen() {
+  try {
+    sessionStorage.setItem(SPLASH_SEEN_KEY, '1');
+  } catch {
+    // Not remembered; the splash will play again next time, which is harmless
+  }
+}
 
 export default function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(shouldShowSplash);
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [toastMessage, setToastMessage] = useState('');
   const [toastTimer, setToastTimer] = useState(null);
@@ -64,7 +84,14 @@ export default function App() {
       </a>
 
       {/* Intro Reveal Animation on First Load */}
-      {showSplash && <IntroSplash onComplete={() => setShowSplash(false)} />}
+      {showSplash && (
+        <IntroSplash
+          onComplete={() => {
+            markSplashSeen();
+            setShowSplash(false);
+          }}
+        />
+      )}
 
       {/* Dual Mode Navbar */}
       <Navbar onOpenLogin={handleOpenLogin} />

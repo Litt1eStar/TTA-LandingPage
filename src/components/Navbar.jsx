@@ -93,7 +93,7 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
             aria-label="TTA 2027 Home"
           >
             <img
-              src="/assets/logo.png"
+              src="/assets/logo-sm.webp"
               alt="Thailand Teaching Academy Award 2027"
               style={{ height: '54px', width: 'auto', display: 'block' }}
             />
@@ -225,7 +225,7 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
             aria-label="TTA 2027 Home"
           >
             <img
-              src="/assets/logo.png"
+              src="/assets/logo-sm.webp"
               alt="TTA 2027"
               style={{ height: '36px', width: 'auto', display: 'block' }}
             />
@@ -347,7 +347,7 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
             onClick={(e) => e.stopPropagation()}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <img src="/assets/logo.png" alt="TTA 2027" style={{ height: '44px', width: 'auto' }} />
+              <img src="/assets/logo-sm.webp" alt="TTA 2027" style={{ height: '44px', width: 'auto' }} />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 style={{

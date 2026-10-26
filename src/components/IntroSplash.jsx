@@ -53,7 +53,7 @@ export default function IntroSplash({ onComplete }) {
         }}
       >
         <img
-          src="/assets/logo.png"
+          src="/assets/logo.webp"
           alt="Thailand Teaching Academy Award"
           style={{
             width: 'min(70vw, 580px)',

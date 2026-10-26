@@ -42,7 +42,7 @@ export default function Footer() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <img
-              src="/assets/logo-white.png"
+              src="/assets/logo-white.webp"
               alt="TTA KMUTT"
               style={{ height: '42px', width: 'auto', display: 'block', opacity: 0.95 }}
             />

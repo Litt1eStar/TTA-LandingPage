@@ -52,9 +52,14 @@ export default function Venues() {
         >
           {/* Minimum width keeps markers apart on phones; the map scrolls sideways instead */}
           <div style={{ position: 'relative', minWidth: '720px' }} onMouseLeave={() => setActiveCode(null)}>
+            {/* width/height reserve the space before the image loads, so the page doesn't jump */}
             <img
-              src="/assets/kmutt-location-3d.svg"
+              src="/assets/kmutt-campus-map.webp"
               alt="แผนผังมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี (มจธ. บางมด)"
+              width="2024"
+              height="1428"
+              loading="lazy"
+              decoding="async"
               style={{ display: 'block', width: '100%', height: 'auto' }}
             />
 

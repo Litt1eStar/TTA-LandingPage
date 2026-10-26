@@ -126,8 +126,7 @@ export const topicsData = [
     mapX: 0,
     mapY: 30,
     leftPct: '0%',
-    topPct: '4.41%',
-    venueImage: '/uploads/pasted-1790624920271-0.png'
+    topPct: '4.41%'
   },
   {
     id: 2,
@@ -148,8 +147,7 @@ export const topicsData = [
     mapX: 301,
     mapY: 105,
     leftPct: '27.36%',
-    topPct: '15.44%',
-    venueImage: '/uploads/pasted-1790624920271-0.png'
+    topPct: '15.44%'
   },
   {
     id: 3,
@@ -174,8 +172,7 @@ export const topicsData = [
     mapX: 602,
     mapY: 30,
     leftPct: '54.73%',
-    topPct: '4.41%',
-    venueImage: '/uploads/pasted-1790624920271-0.png'
+    topPct: '4.41%'
   },
   {
     id: 4,
@@ -195,8 +192,7 @@ export const topicsData = [
     mapX: 904,
     mapY: 105,
     leftPct: '82.18%',
-    topPct: '15.44%',
-    venueImage: '/uploads/pasted-1790624920271-0.png'
+    topPct: '15.44%'
   },
   {
     id: 5,
@@ -216,8 +212,7 @@ export const topicsData = [
     mapX: 0,
     mapY: 360,
     leftPct: '0%',
-    topPct: '52.94%',
-    venueImage: '/uploads/pasted-1790624920271-0.png'
+    topPct: '52.94%'
   },
   {
     id: 6,
@@ -237,8 +232,7 @@ export const topicsData = [
     mapX: 301,
     mapY: 455,
     leftPct: '27.36%',
-    topPct: '66.91%',
-    venueImage: '/uploads/pasted-1790624920271-0.png'
+    topPct: '66.91%'
   },
   {
     id: 7,
@@ -258,8 +252,7 @@ export const topicsData = [
     mapX: 602,
     mapY: 360,
     leftPct: '54.73%',
-    topPct: '52.94%',
-    venueImage: '/uploads/pasted-1790624920271-0.png'
+    topPct: '52.94%'
   },
   {
     id: 8,
@@ -279,8 +272,7 @@ export const topicsData = [
     mapX: 904,
     mapY: 455,
     leftPct: '82.18%',
-    topPct: '66.91%',
-    venueImage: '/uploads/pasted-1790624920271-0.png'
+    topPct: '66.91%'
   }
 ];
 
