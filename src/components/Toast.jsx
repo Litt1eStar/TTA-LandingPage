@@ -8,7 +8,7 @@ export default function Toast({ message, onClose }) {
       style={{
         position: 'fixed',
         left: '50%',
-        bottom: 'calc(var(--sponsor-bar-height) + 20px)',
+        bottom: '28px',
         zIndex: 200,
         transform: 'translateX(-50%)',
         display: 'flex',

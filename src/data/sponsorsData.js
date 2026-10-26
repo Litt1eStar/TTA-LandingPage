@@ -1,4 +1,4 @@
-// Official sponsors shown in the sticky bar at the bottom of the screen.
+// Official sponsors shown in the sponsors section (before the footer).
 // These are mockup logos (public/sponsors/sponsor-NN.svg) until the real files arrive from
 // พี่เอ็ม's Drive: replace each entry's name and logo, keeping the logo about 200×64.
 export const sponsorsData = Array.from({ length: 10 }, (_, i) => {

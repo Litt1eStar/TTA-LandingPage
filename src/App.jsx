@@ -76,10 +76,8 @@ export default function App() {
         <Venues />
         <NewsDownloads onOpenNews={handleOpenNews} />
         <Universities />
+        <Sponsors />
       </main>
-
-      {/* Sticky sponsor bar at the bottom of the screen */}
-      <Sponsors />
 
       {/* Footer */}
       <Footer />
