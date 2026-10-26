@@ -285,3 +285,46 @@ body {
     display: none !important;
   }
 }
+
+/* Participating universities */
+.university-grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.university-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 14px 18px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: 0 16px 32px -26px rgba(14, 26, 51, 0.45);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.university-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px -24px rgba(14, 26, 51, 0.5);
+}
+
+@media (max-width: 991px) {
+  .university-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .university-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}

@@ -10,6 +10,7 @@ import TopicModal from './components/TopicModal';
 import Schedule from './components/Schedule';
 import Venues from './components/Venues';
 import NewsDownloads from './components/NewsDownloads';
+import Universities from './components/Universities';
 import Toast from './components/Toast';
 import Sponsors from './components/Sponsors';
 import Footer from './components/Footer';
@@ -74,6 +75,7 @@ export default function App() {
         <Schedule />
         <Venues />
         <NewsDownloads onOpenNews={handleOpenNews} />
+        <Universities />
       </main>
 
       {/* Sticky sponsor bar at the bottom of the screen */}
