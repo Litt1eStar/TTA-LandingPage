@@ -1,4 +1,5 @@
 // Participating institutions, in the order of the team's sheet (ข้อมูลให้เบ้น.xlsx).
+// `code` is the short name shown in the portal (TTA-LoginPortal); keep the two in sync.
 // Logos live in public/logos/university/<code>.png, trimmed and resized to 240px tall; the
 // original high-resolution files are kept in design/university-logos-original/ (not served).
 export const universitiesData = [
@@ -10,6 +11,6 @@ export const universitiesData = [
   { code: 'RMUTP', name: 'มหาวิทยาลัยเทคโนโลยีราชมงคลพระนคร', logo: '/logos/university/rmutp.png' },
   { code: 'RMUTT', name: 'มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี', logo: '/logos/university/rmutt.png' },
   { code: 'RMUTL', name: 'มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา', logo: '/logos/university/rmutl.png' },
-  { code: 'RUTS', name: 'มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย', logo: '/logos/university/ruts.png' },
+  { code: 'RMUTSV', name: 'มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย', logo: '/logos/university/rmutsv.png' },
   { code: 'RMUTI', name: 'มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน', logo: '/logos/university/rmuti.png' }
 ];
