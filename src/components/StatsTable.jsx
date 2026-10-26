@@ -143,7 +143,7 @@ export default function StatsTable() {
                 boxShadow: 'var(--shadow-primary)'
               }}
             >
-              <span className="icon" style={{ fontSize: '24px' }}>leaderboard</span>
+              <span className="icon" aria-hidden="true" style={{ fontSize: '24px' }}>leaderboard</span>
             </span>
             <div>
               <h3 style={{ margin: 0, font: '700 22px var(--font-family-base)', color: 'var(--color-ink-900)' }}>

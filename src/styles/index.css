@@ -63,9 +63,62 @@ a:hover {
 
 button {
   font-family: var(--font-family-base);
-  outline: none;
   border: none;
   cursor: pointer;
+}
+
+/* Keyboard focus: shown for keyboard users only (not on mouse clicks) */
+:focus-visible {
+  outline: 3px solid var(--color-blue);
+  outline-offset: 3px;
+}
+
+/* <main> only receives focus as the skip link's target; it is not a control */
+#main:focus {
+  outline: none;
+}
+
+/* On coloured or dark backgrounds the blue ring disappears, so use white there */
+.on-dark :focus-visible {
+  outline-color: #ffffff;
+}
+
+/* Skip link: hidden until focused, then pinned to the top-left */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 300;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: var(--color-ink-900);
+  color: #ffffff;
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  color: #ffffff;
+}
+
+/* Respect the OS "reduce motion" setting across the whole site */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 input, textarea, select {

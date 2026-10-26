@@ -2,6 +2,14 @@ import React from 'react';
 import { topicsData } from '../data/topicsData';
 
 export default function Topics({ onSelectTopic }) {
+  // Cards are divs with role="button", so they need the keys a real button responds to
+  const onCardKey = (topic) => (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onSelectTopic(topic);
+    }
+  };
+
   return (
     <section
       id="topics"
@@ -70,7 +78,8 @@ export default function Topics({ onSelectTopic }) {
                 onClick={() => onSelectTopic(topic)}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && onSelectTopic(topic)}
+                onKeyDown={onCardKey(topic)}
+                aria-label={`${topic.name}: ดูรายละเอียด`}
                 style={{
                   position: 'absolute',
                   left: topic.leftPct,
@@ -120,6 +129,7 @@ export default function Topics({ onSelectTopic }) {
                     </div>
                     <span
                       className="icon"
+                      aria-hidden="true"
                       style={{
                         fontSize: '25cqw',
                         color: iconColor
@@ -195,6 +205,8 @@ export default function Topics({ onSelectTopic }) {
                 onClick={() => onSelectTopic(topic)}
                 role="button"
                 tabIndex={0}
+                onKeyDown={onCardKey(topic)}
+                aria-label={`${topic.name}: ดูรายละเอียด`}
                 style={{
                   position: 'relative',
                   paddingTop: '16px',
@@ -242,7 +254,7 @@ export default function Topics({ onSelectTopic }) {
                     <div style={{ font: '700 17px var(--font-family-base)', color: '#0E1A33' }}>
                       {topic.name}
                     </div>
-                    <span className="icon" style={{ fontSize: '40px', color: iconColor }}>
+                    <span className="icon" aria-hidden="true" style={{ fontSize: '40px', color: iconColor }}>
                       {topic.icon}
                     </span>
                     <div

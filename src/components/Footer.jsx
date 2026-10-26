@@ -3,6 +3,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <footer
+      className="on-dark"
       style={{
         position: 'relative',
         background: 'linear-gradient(120deg, #0B1530 0%, #132A6B 60%, #1747D6 100%)',

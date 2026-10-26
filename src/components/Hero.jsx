@@ -152,7 +152,7 @@ export default function Hero({ onOpenLogin, onShowResults }) {
                 }}
               >
                 <span>เข้าสู่ระบบ</span>
-                <span className="icon" style={{ fontSize: '22px' }}>arrow_forward</span>
+                <span className="icon" aria-hidden="true" style={{ fontSize: '22px' }}>arrow_forward</span>
               </button>
 
               <button
@@ -179,7 +179,7 @@ export default function Hero({ onOpenLogin, onShowResults }) {
                   e.currentTarget.style.boxShadow = 'var(--shadow-blue)';
                 }}
               >
-                <span className="icon" style={{ fontSize: '22px' }}>trophy</span>
+                <span className="icon" aria-hidden="true" style={{ fontSize: '22px' }}>trophy</span>
                 <span>สรุปผลรางวัล</span>
               </button>
             </div>

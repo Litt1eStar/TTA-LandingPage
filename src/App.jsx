@@ -59,6 +59,10 @@ export default function App() {
 
   return (
     <div style={{ position: 'relative', overflowX: 'hidden', minHeight: '100vh', backgroundColor: '#ffffff' }}>
+      <a href="#main" className="skip-link">
+        ข้ามไปยังเนื้อหาหลัก
+      </a>
+
       {/* Intro Reveal Animation on First Load */}
       {showSplash && <IntroSplash onComplete={() => setShowSplash(false)} />}
 
@@ -66,7 +70,7 @@ export default function App() {
       <Navbar onOpenLogin={handleOpenLogin} />
 
       {/* Main Content Sections */}
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero onOpenLogin={handleOpenLogin} onShowResults={handleShowResults} />
         <BannerSlider />
         <Stats />

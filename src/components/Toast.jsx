@@ -51,7 +51,7 @@ export default function Toast({ message, onClose }) {
           }}
           aria-label="ปิดแจ้งเตือน"
         >
-          <span className="icon" style={{ fontSize: '18px' }}>close</span>
+          <span className="icon" aria-hidden="true" style={{ fontSize: '18px' }}>close</span>
         </button>
       )}
     </div>

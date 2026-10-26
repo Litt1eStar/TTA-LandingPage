@@ -7,6 +7,7 @@ export default function Schedule() {
   return (
     <section
       id="schedule"
+      className="on-dark"
       style={{
         position: 'relative',
         padding: '110px 24px 120px',
@@ -159,6 +160,7 @@ export default function Schedule() {
 
                     <span
                       className="icon"
+                      aria-hidden="true"
                       style={{
                         position: 'relative',
                         fontSize: '56px',
@@ -300,7 +302,7 @@ export default function Schedule() {
                     flex: 'none'
                   }}
                 >
-                  <span className="icon" style={{ fontSize: '26px', color: '#ffffff' }}>
+                  <span className="icon" aria-hidden="true" style={{ fontSize: '26px', color: '#ffffff' }}>
                     {s.icon}
                   </span>
                 </div>

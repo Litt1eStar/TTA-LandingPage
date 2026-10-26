@@ -96,7 +96,7 @@ export default function Venues() {
                       whiteSpace: 'nowrap'
                     }}
                   >
-                    <span className="icon" style={{ fontSize: '16px' }}>location_on</span>
+                    <span className="icon" aria-hidden="true" style={{ fontSize: '16px' }}>location_on</span>
                     {b.code}
                   </button>
 
@@ -127,7 +127,7 @@ export default function Venues() {
                         <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gap: '8px' }}>
                           {b.topics.map((t) => (
                             <li key={t.id} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
-                              <span className="icon" style={{ fontSize: '18px', color: 'var(--color-primary)' }}>
+                              <span className="icon" aria-hidden="true" style={{ fontSize: '18px', color: 'var(--color-primary)' }}>
                                 {t.icon}
                               </span>
                               <span>

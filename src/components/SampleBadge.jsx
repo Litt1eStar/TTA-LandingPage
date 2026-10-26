@@ -16,7 +16,7 @@ export default function SampleBadge({ children = 'ข้อมูลตัวอ
         font: '600 13px var(--font-family-base)'
       }}
     >
-      <span className="icon" style={{ fontSize: '16px' }}>info</span>
+      <span className="icon" aria-hidden="true" style={{ fontSize: '16px' }}>info</span>
       {children}
     </span>
   );

@@ -1,18 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { categoryProfiles } from '../data/topicsData';
 import ImagePlaceholder from './ImagePlaceholder';
 
 export default function TopicModal({ topic, onClose, onToast }) {
   const [activeTab, setActiveTab] = useState(0);
+  const dialogRef = useRef(null);
+  const closeRef = useRef(null);
+  const tabRefs = useRef([]);
+  // App passes a new onClose on every render; keep the latest in a ref so the effect below
+  // runs once per opening instead of re-running (and re-focusing) on every parent render
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
-  // Close modal when pressing Escape key
-  React.useEffect(() => {
+  // While open: lock page scroll, move focus into the dialog and keep it there (Tab wraps),
+  // close on Escape, and hand focus back to whatever opened the dialog on close.
+  useEffect(() => {
+    const opener = document.activeElement;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        onCloseRef.current();
+        return;
+      }
+      if (e.key !== 'Tab' || !dialogRef.current) return;
+      const focusable = [...dialogRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )].filter((el) => !el.disabled && el.offsetParent !== null);
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = prevOverflow;
+      // preventScroll: a button that closes and scrolls elsewhere (hotels) must not be undone
+      if (opener instanceof HTMLElement) opener.focus({ preventScroll: true });
+    };
+  }, []);
 
   if (!topic) return null;
 
@@ -29,6 +64,16 @@ export default function TopicModal({ topic, onClose, onToast }) {
     { label: 'เกณฑ์การให้คะแนน', icon: 'star' },
     { label: 'กำหนดการแข่งขัน', icon: 'schedule' }
   ];
+
+  // Left/Right/Home/End move between tabs, as in a native tab widget
+  const handleTabKey = (e, idx) => {
+    const last = tabs.length - 1;
+    const next = { ArrowRight: idx === last ? 0 : idx + 1, ArrowLeft: idx === 0 ? last : idx - 1, Home: 0, End: last }[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    setActiveTab(next);
+    tabRefs.current[next]?.focus();
+  };
 
   const handleDownloadRules = () => {
     onToast?.(`กำลังดาวน์โหลดเอกสารกติกา ${topic.name}`);
@@ -66,7 +111,9 @@ export default function TopicModal({ topic, onClose, onToast }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        ref={dialogRef}
         role="dialog"
+        aria-modal="true"
         aria-label={topic.name}
         style={{
           position: 'relative',
@@ -84,6 +131,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
       >
         {/* Modal Header */}
         <div
+          className="on-dark"
           style={{
             position: 'relative',
             flex: 'none',
@@ -109,6 +157,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
 
           {/* Close Button */}
           <button
+            ref={closeRef}
             onClick={onClose}
             aria-label="ปิด"
             style={{
@@ -130,7 +179,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.38)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.22)')}
           >
-            <span className="icon" style={{ fontSize: '22px' }}>close</span>
+            <span className="icon" aria-hidden="true" style={{ fontSize: '22px' }}>close</span>
           </button>
 
           {/* Header Metadata */}
@@ -180,7 +229,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
                   font: '600 13px var(--font-family-base)'
                 }}
               >
-                <span className="icon" style={{ fontSize: '18px' }}>groups</span>
+                <span className="icon" aria-hidden="true" style={{ fontSize: '18px' }}>groups</span>
                 {topic.type} · {topic.people}
               </span>
               <span
@@ -194,7 +243,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
                   font: '600 13px var(--font-family-base)'
                 }}
               >
-                <span className="icon" style={{ fontSize: '18px' }}>event</span>
+                <span className="icon" aria-hidden="true" style={{ fontSize: '18px' }}>event</span>
                 {topic.date}
               </span>
             </div>
@@ -259,9 +308,14 @@ export default function TopicModal({ topic, onClose, onToast }) {
               return (
                 <button
                   key={tab.label}
+                  ref={(el) => (tabRefs.current[idx] = el)}
+                  id={`topic-tab-${idx}`}
                   role="tab"
                   aria-selected={isSelected}
+                  aria-controls="topic-tabpanel"
+                  tabIndex={isSelected ? 0 : -1}
                   onClick={() => setActiveTab(idx)}
+                  onKeyDown={(e) => handleTabKey(e, idx)}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -275,7 +329,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
                     transition: 'all 0.2s ease'
                   }}
                 >
-                  <span className="icon" style={{ fontSize: '20px' }}>{tab.icon}</span>
+                  <span className="icon" aria-hidden="true" style={{ fontSize: '20px' }}>{tab.icon}</span>
                   <span>{tab.label}</span>
                 </button>
               );
@@ -285,6 +339,10 @@ export default function TopicModal({ topic, onClose, onToast }) {
 
         {/* Tab Body Contents */}
         <div
+          id="topic-tabpanel"
+          role="tabpanel"
+          aria-labelledby={`topic-tab-${activeTab}`}
+          tabIndex={0}
           style={{
             flex: 1,
             minHeight: '260px',
@@ -365,7 +423,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <span className="icon" style={{ fontSize: '28px', color: '#FF6A1A', marginTop: '2px' }}>
+                  <span className="icon" aria-hidden="true" style={{ fontSize: '28px', color: '#FF6A1A', marginTop: '2px' }}>
                     location_on
                   </span>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
@@ -409,7 +467,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
                       cursor: 'pointer'
                     }}
                   >
-                    <span className="icon" style={{ fontSize: '20px' }}>map</span>
+                    <span className="icon" aria-hidden="true" style={{ fontSize: '20px' }}>map</span>
                     <span>เปิดแผนที่ Google Maps</span>
                   </button>
                   <button
@@ -428,7 +486,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
                       cursor: 'pointer'
                     }}
                   >
-                    <span className="icon" style={{ fontSize: '20px' }}>hotel</span>
+                    <span className="icon" aria-hidden="true" style={{ fontSize: '20px' }}>hotel</span>
                     <span>โรงแรมใกล้เคียง</span>
                   </button>
                 </div>
@@ -506,7 +564,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
                   color: '#0E1A33'
                 }}
               >
-                <span className="icon" style={{ fontSize: '20px', color: '#FF6A1A' }}>
+                <span className="icon" aria-hidden="true" style={{ fontSize: '20px', color: '#FF6A1A' }}>
                   calendar_month
                 </span>
                 <span>{topic.date}</span>
@@ -594,7 +652,7 @@ export default function TopicModal({ topic, onClose, onToast }) {
               cursor: 'pointer'
             }}
           >
-            <span className="icon" style={{ fontSize: '20px' }}>download</span>
+            <span className="icon" aria-hidden="true" style={{ fontSize: '20px' }}>download</span>
             <span>ดาวน์โหลดเอกสาร</span>
           </button>
         </div>

@@ -48,7 +48,7 @@ function BannerPlaceholder({ banner }) {
           background: 'repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 18px, transparent 18px 36px)'
         }}
       />
-      <span className="icon" style={{ position: 'relative', fontSize: 'clamp(34px, 5vw, 64px)' }}>
+      <span className="icon" aria-hidden="true" style={{ position: 'relative', fontSize: 'clamp(34px, 5vw, 64px)' }}>
         {banner.icon}
       </span>
       <div style={{ position: 'relative', font: '700 clamp(22px, 3.4vw, 44px)/1.2 var(--font-family-base)' }}>
@@ -110,6 +110,7 @@ export default function BannerSlider() {
   return (
     <section
       aria-roledescription="carousel"
+      className="on-dark"
       aria-label="แบนเนอร์ประชาสัมพันธ์"
       style={{ padding: '24px 24px 0', backgroundColor: '#ffffff' }}
     >
@@ -175,10 +176,10 @@ export default function BannerSlider() {
         {count > 1 && (
           <>
             <button type="button" aria-label="แบนเนอร์ก่อนหน้า" onClick={() => goTo(index - 1)} style={arrowStyle('left')} className="banner-arrow">
-              <span className="icon" style={{ fontSize: '26px' }}>chevron_left</span>
+              <span className="icon" aria-hidden="true" style={{ fontSize: '26px' }}>chevron_left</span>
             </button>
             <button type="button" aria-label="แบนเนอร์ถัดไป" onClick={() => goTo(index + 1)} style={arrowStyle('right')} className="banner-arrow">
-              <span className="icon" style={{ fontSize: '26px' }}>chevron_right</span>
+              <span className="icon" aria-hidden="true" style={{ fontSize: '26px' }}>chevron_right</span>
             </button>
 
             {/* Dots */}

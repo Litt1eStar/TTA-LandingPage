@@ -129,7 +129,7 @@ export default function NewsDownloads({ onOpenNews }) {
                   className="news-open-btn"
                 >
                   <span>คลิกเปิด</span>
-                  <span className="icon" style={{ fontSize: '18px' }}>arrow_outward</span>
+                  <span className="icon" aria-hidden="true" style={{ fontSize: '18px' }}>arrow_outward</span>
                 </button>
               </div>
             </div>

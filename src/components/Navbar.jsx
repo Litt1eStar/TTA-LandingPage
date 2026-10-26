@@ -37,6 +37,14 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Escape closes the mobile menu
+  useEffect(() => {
+    if (!mobileMenuOpen) return undefined;
+    const onKey = (e) => e.key === 'Escape' && setMobileMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [mobileMenuOpen]);
+
   const handleNavClick = (e, id) => {
     e.preventDefault();
     setMobileMenuOpen(false);
@@ -165,8 +173,10 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
               color: 'var(--color-ink-900)'
             }}
             aria-label="เมนู"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
-            <span className="icon" style={{ fontSize: '26px' }}>
+            <span className="icon" aria-hidden="true" style={{ fontSize: '26px' }}>
               {mobileMenuOpen ? 'close' : 'menu'}
             </span>
           </button>
@@ -292,8 +302,10 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
                 color: 'var(--color-ink-900)'
               }}
               aria-label="เมนู"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
-              <span className="icon" style={{ fontSize: '22px' }}>
+              <span className="icon" aria-hidden="true" style={{ fontSize: '22px' }}>
                 {mobileMenuOpen ? 'close' : 'menu'}
               </span>
             </button>
@@ -317,6 +329,9 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
+            id="mobile-menu"
+            role="dialog"
+            aria-label="เมนู"
             style={{
               width: '80%',
               maxWidth: '320px',
@@ -345,7 +360,7 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
                   color: 'var(--color-ink-900)'
                 }}
               >
-                <span className="icon" style={{ fontSize: '20px' }}>close</span>
+                <span className="icon" aria-hidden="true" style={{ fontSize: '20px' }}>close</span>
               </button>
             </div>
 
@@ -367,7 +382,7 @@ export default function Navbar({ onOpenLogin, onNavigate }) {
                   }}
                 >
                   {link.label}
-                  <span className="icon" style={{ fontSize: '18px' }}>chevron_right</span>
+                  <span className="icon" aria-hidden="true" style={{ fontSize: '18px' }}>chevron_right</span>
                 </a>
               ))}
             </nav>

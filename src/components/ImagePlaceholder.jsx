@@ -41,7 +41,7 @@ export default function ImagePlaceholder({
           color: '#5B6478'
         }}
       >
-        <span className="icon" style={{ fontSize: '24px' }}>
+        <span className="icon" aria-hidden="true" style={{ fontSize: '24px' }}>
           {icon}
         </span>
       </div>

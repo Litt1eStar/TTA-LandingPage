@@ -29,8 +29,10 @@ export default function Stats() {
       requestAnimationFrame(step);
     };
 
-    if (!('IntersectionObserver' in window)) {
-      runCountAnimation();
+    // Without an observer, or when the viewer prefers less motion, show the final numbers now
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      setCounts(targets);
       return;
     }
 
