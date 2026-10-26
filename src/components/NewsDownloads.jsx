@@ -8,7 +8,7 @@ export default function NewsDownloads({ onOpenNews }) {
       id="news"
       style={{
         position: 'relative',
-        padding: '110px 24px 130px',
+        padding: '110px 24px 120px',
         backgroundColor: '#ffffff'
       }}
     >
@@ -19,6 +19,7 @@ export default function NewsDownloads({ onOpenNews }) {
       </div>
 
       <div
+        className="reveal"
         style={{
           maxWidth: '920px',
           margin: '0 auto',

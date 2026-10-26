@@ -14,6 +14,8 @@ import Universities from './components/Universities';
 import Toast from './components/Toast';
 import Sponsors from './components/Sponsors';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
+import useReveal from './hooks/useReveal';
 
 const PORTAL_URL = 'https://tta.portal.cmm.works/';
 const SPLASH_SEEN_KEY = 'tta-splash-seen';
@@ -41,6 +43,7 @@ export default function App() {
   const [showSplash, setShowSplash] = useState(shouldShowSplash);
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [toastMessage, setToastMessage] = useState('');
+  useReveal();
   const [toastTimer, setToastTimer] = useState(null);
 
   const showToast = (msg) => {
@@ -121,6 +124,8 @@ export default function App() {
           onToast={showToast}
         />
       )}
+
+      <BackToTop />
 
       {/* Toast Feedback Notification */}
       <Toast message={toastMessage} onClose={() => setToastMessage('')} />

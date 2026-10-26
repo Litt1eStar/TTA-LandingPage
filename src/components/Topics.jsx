@@ -29,6 +29,7 @@ export default function Topics({ onSelectTopic }) {
       {/* Desktop Circuit Map Layout (screen width >= 992px) */}
       <div className="topics-desktop-circuit">
         <div
+          className="reveal"
           style={{
             position: 'relative',
             maxWidth: '1100px',
@@ -179,12 +180,14 @@ export default function Topics({ onSelectTopic }) {
       {/* Mobile/Tablet Grid View (screen width < 992px) */}
       <div className="topics-mobile-grid">
         <div
+          className="reveal"
           style={{
             maxWidth: '900px',
             margin: '0 auto',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
-            gap: '32px 20px',
+            // 150px keeps two cards per row on a phone (8 cards in 4 rows instead of 8)
+            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+            gap: '32px 14px',
             paddingTop: '20px'
           }}
         >

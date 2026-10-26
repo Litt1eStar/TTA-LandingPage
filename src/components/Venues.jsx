@@ -41,6 +41,7 @@ export default function Venues() {
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {/* Campus map with building markers */}
         <div
+          className="reveal"
           style={{
             borderRadius: '24px',
             backgroundColor: '#ffffff',

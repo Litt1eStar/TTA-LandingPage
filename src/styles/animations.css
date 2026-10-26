@@ -71,14 +71,18 @@
   }
 }
 
-/* Reveal transition helpers */
-.reveal-fade-up {
+/* Scroll reveal (see src/hooks/useReveal.js). Only active once the hook adds html.js-reveal,
+   so content is never left hidden. --reveal-delay staggers items in a grid. */
+.js-reveal .section-header,
+.js-reveal .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-.reveal-fade-up.is-revealed {
+.js-reveal .section-header.is-visible,
+.js-reveal .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }

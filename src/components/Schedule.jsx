@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { scheduleSteps } from '../data/scheduleData';
+import { scheduleSteps, getCurrentStep } from '../data/scheduleData';
 
 export default function Schedule() {
-  const [activeStep, setActiveStep] = useState(1);
+  // "ขณะนี้" follows today's date; activeStep is whichever step the viewer is looking at
+  const [currentStep] = useState(() => getCurrentStep());
+  const [activeStep, setActiveStep] = useState(currentStep);
 
   return (
     <section
@@ -128,7 +130,7 @@ export default function Schedule() {
                     }}
                     className="step-pillar"
                   >
-                    {isActive && (
+                    {s.step === currentStep && (
                       <span
                         style={{
                           position: 'absolute',
@@ -311,7 +313,7 @@ export default function Schedule() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span style={{ font: '700 13px ui-monospace', opacity: 0.85 }}>{s.n}</span>
                     <div style={{ font: '700 17px var(--font-family-base)' }}>{s.title}</div>
-                    {isActive && (
+                    {s.step === currentStep && (
                       <span
                         style={{
                           padding: '2px 8px',

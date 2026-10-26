@@ -15,7 +15,7 @@ export default function Universities() {
         </p>
       </div>
 
-      <ul className="university-grid">
+      <ul className="university-grid reveal">
         {universitiesData.map((u) => (
           <li key={u.code} className="university-card">
             <div style={{ height: '96px', display: 'grid', placeItems: 'center' }}>

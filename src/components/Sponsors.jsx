@@ -17,7 +17,7 @@ export default function Sponsors() {
         <p className="section-subtitle">ขอขอบคุณผู้สนับสนุนการแข่งขัน TTA 2027</p>
       </div>
 
-      <ul className="sponsor-grid">
+      <ul className="sponsor-grid reveal">
         {sponsorsData.map((s) => (
           <li key={s.name} className="sponsor-card">
             <img src={s.logo} alt={s.name} loading="lazy" />

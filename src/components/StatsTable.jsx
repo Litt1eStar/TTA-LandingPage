@@ -24,7 +24,7 @@ const headerCell = (tone, first) => ({
 });
 
 // One card holding a two-row-header table for a set of groups
-function StatsBand({ groups }) {
+function StatsBand({ groups, index = 0 }) {
   const cells = groups.flatMap((g) =>
     g.columns
       ? g.columns.map((c, i) => ({ count: c.count, tone: g.tone, first: i === 0 }))
@@ -33,7 +33,9 @@ function StatsBand({ groups }) {
 
   return (
     <div
+      className="reveal"
       style={{
+        '--reveal-delay': `${index * 120}ms`,
         borderRadius: '24px',
         backgroundColor: '#ffffff',
         boxShadow: '0 24px 50px -30px rgba(14, 26, 51, 0.35)',
@@ -158,8 +160,8 @@ export default function StatsTable() {
         </div>
 
         <div style={{ display: 'grid', gap: '20px' }}>
-          {statsTableBands.map((groups) => (
-            <StatsBand key={groups[0].label} groups={groups} />
+          {statsTableBands.map((groups, i) => (
+            <StatsBand key={groups[0].label} groups={groups} index={i} />
           ))}
         </div>
       </div>
