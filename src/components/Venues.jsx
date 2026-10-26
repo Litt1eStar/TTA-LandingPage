@@ -75,7 +75,7 @@ export default function Venues() {
                 >
                   <button
                     type="button"
-                    aria-label={`อาคาร ${b.code}`}
+                    aria-label={`อาคาร ${b.code}${b.cb ? ` (${b.cb})` : ''}`}
                     aria-expanded={active}
                     onMouseEnter={() => setActiveCode(b.code)}
                     onFocus={() => setActiveCode(b.code)}
@@ -117,7 +117,7 @@ export default function Venues() {
                       }}
                     >
                       <div style={{ font: '700 16px var(--font-family-base)', color: '#0E1A33', marginBottom: '8px' }}>
-                        อาคาร {b.code}
+                        อาคาร {b.code}{b.cb && ` (${b.cb})`}
                       </div>
                       {b.topics.length === 0 ? (
                         <div style={{ font: '400 14px var(--font-family-base)', color: 'var(--color-ink-400)' }}>
