@@ -285,7 +285,7 @@ export const topicsData = [
 ];
 
 export const statsData = [
-  { id: 1, label: 'รายการแข่งขัน', target: 11, theme: 'gradient-orange' },
+  { id: 1, label: 'รายการแข่งขัน', target: 17, theme: 'gradient-orange' },
   { id: 2, label: 'ผู้แข่งขัน', target: 370, theme: 'white-orange' },
   { id: 3, label: 'ผู้ควบคุมทีม', target: 157, theme: 'gradient-blue' },
   { id: 4, label: 'ลงทะเบียนเข้าร่วม', target: 138, theme: 'white-blue' },

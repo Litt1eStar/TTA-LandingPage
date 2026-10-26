@@ -84,40 +84,6 @@ export default function Hero({ onOpenLogin, onShowResults }) {
               animation: 'ttaFadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards'
             }}
           >
-            {/* Pill Badge */}
-            <div style={{ display: 'flex' }}>
-              <span
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  padding: '7px 16px 7px 8px',
-                  borderRadius: '999px',
-                  backgroundColor: '#ffffff',
-                  boxShadow: '0 6px 18px -8px rgba(14, 26, 51, 0.25)',
-                  font: '600 14px var(--font-family-base)',
-                  color: 'var(--color-ink-900)',
-                  border: '1px solid rgba(14, 26, 51, 0.04)'
-                }}
-              >
-                <span
-                  style={{
-                    width: '24px',
-                    height: '24px',
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #FFB21E, #FF4D1A)',
-                    color: '#ffffff',
-                    display: 'grid',
-                    placeItems: 'center',
-                    font: '700 12px var(--font-family-base)'
-                  }}
-                >
-                  13
-                </span>
-                การแข่งขันระดับประเทศ ครั้งที่ 13
-              </span>
-            </div>
-
             {/* Main Title */}
             <h1
               style={{
